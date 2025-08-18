@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     // Safer way to use credentials
-                    withCredentials([usernamePassword(credentialsId: 'docker-hub-cred', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                    withCredentials([usernamePassword(credentialsId: 'da188a66-95bf-451d-8f35-e2541db67ab4', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                         sh 'echo $PASS | docker login -u $USER --password-stdin'
                         sh 'docker push $DOCKER_HUB:$BUILD_NUMBER'
                         sh 'docker push $DOCKER_HUB:latest'
