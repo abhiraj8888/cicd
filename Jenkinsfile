@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB = "abhiraj8888/cicd" // Your Docker Hub repo
+        DOCKER_HUB = "abhidocker06/cicd" // Your Docker Hub repo
     }
 
     stages {
