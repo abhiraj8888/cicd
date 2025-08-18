@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB = "abhiraj8888/myapp" // Your Docker Hub repo
+        DOCKER_HUB = "abhiraj8888/cicd" // Your Docker Hub repo
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/abhiraj8888/myapp.git'
+                git branch: 'main', url: 'https://github.com/abhiraj8888/cicd.git'
             }
         }
 
