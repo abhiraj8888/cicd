@@ -1,10 +1,11 @@
 pipeline {
-agent any
-stages {
-  stage('Hello') {
-    steps {
-      echo "hello jenkins"
-     }
-   }
+  agent any 
+  stages {
+    stage('stage1') {
+      steps {
+        sh 'systemctl status jenkins'
+        echo "hello"
+      }
+    }
   }
 }
