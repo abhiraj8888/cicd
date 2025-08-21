@@ -3,7 +3,7 @@ agent any
 
 options {
   buildDiscarder(logRotator(numToKeepStr: '10'))
-  timestamp()
+  timestamps()
 disableConcurrentBuilds()
 }
 
