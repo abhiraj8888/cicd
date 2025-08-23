@@ -22,6 +22,6 @@ pipeline {
   post {
     success { echo ' Pipeline Succeeded' }
     failure { echo 'pipeline failed' }
-    always { echo "Build url: ${env.BUILD_ID}" }
+    always { echo "Build url: ${env.BUILD_DISPLAY_NAME}" }
   }
 }
