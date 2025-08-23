@@ -1,28 +1,27 @@
 pipeline {
-agent any
+  agent any 
+  options {
+    buildDiscorder(logRotator(numToKeepStr: '10')) 
+    timestamps()
+    disableConcurrentBuilds()
+  }
 
-options {
-  buildDiscarder(logRotator(numToKeepStr: '10'))
-  timestamps()
-disableConcurrentBuilds()
-}
+  environment {
+    APP_NAME = 'hello-app'
+    RUN_BY = 'webhook'
+  }
 
-environment {
-  APP_NAME = 'hello-app'
-  RUN_BY = 'webhook'
-}
+  stages {
+    stage('Hello') {
+      steps {
+        echo "Starting ${env.APP_NAME} by ${env.RUN_BY}"
+      }
+    }
+  }
 
-stages {
-  stage('Hello') {
-    steps {
-      echo "Starting ${env.APP_NAME} by ${env.RUN_BY}"
-}
-}
-}
-
-post {
-  success { echo ' pipeline succeeded' }
-  failure { echo ' pipeline failed' }
-  always { echo ' Build URL: ${env.BUILD_URL' }
-}
+  post {
+    success { echo ' Pipeline Succeeded' }
+    failure { echo 'pipeline failed' }
+    always { echo 'Build url: ${env.BUILD_URL}' }
+  }
 }
