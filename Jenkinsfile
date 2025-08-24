@@ -1,13 +1,13 @@
 pipeline {
-  agent any 
+  agent any
   options {
-    buildDiscarder(logRotator(numToKeepStr: '10')) 
+    buildDiscarder(logRotator(numToKeepStr: '10'))
     timestamps()
     disableConcurrentBuilds()
   }
 
   environment {
-    APP_NAME = 'hello-app'
+    APP_NAME =  'hello-app'
     RUN_BY = 'webhook'
   }
 
@@ -20,8 +20,8 @@ pipeline {
   }
 
   post {
-    success { echo ' Pipeline Succeeded' }
-    failure { echo 'pipeline failed' }
-    always { echo "Build url: ${env.NODE_NAME}" }
+    success { echo "pipeline succeeded" }
+    failure { echo "pipeline failed" }
+    always { echo "Build URL: ${env.BUILD_URL}" }
   }
 }
